@@ -23,16 +23,16 @@ export class RealEstate {
   @UpdateDateColumn()
   updatedAt:string;
 
-  @OneToMany(()=>Schedule,(schedules)=>schedules.real_estate)
-  schedule:Schedule[]
+  @OneToMany(()=>Schedule,(schedules)=>schedules.realEstate)
+  schedules:Schedule[]
 
   @OneToOne(() => Address)
   @JoinColumn()
-  addresses: Address
+  address: Address
 
 
-  @ManyToOne(() => Category ,(categories)=>categories.real_estate)
-  categories: Category;
+  @ManyToOne(() => Category ,(categories)=>categories.realEstate)
+  category: Category;
 }
 
 export default RealEstate;

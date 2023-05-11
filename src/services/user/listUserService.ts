@@ -5,14 +5,14 @@ import { TUserListResponse } from "../../interfaces/usersInterfaces"
 import { userListSchemaResponse } from "../../schemas/userschemas"
 
 export const listUserService=async(
-     ):
-      Promise<TUserListResponse>=>{
+):
+Promise<TUserListResponse>=>{
   
-        const userRepository:Repository<User>= AppDataSource.getRepository(User)
+const userRepository:Repository<User>= AppDataSource.getRepository(User)
 
-        const users: User[] = await userRepository.find()
+const users: User[] = await userRepository.find()
 
-        const returnUsers: TUserListResponse = userListSchemaResponse.parse(users)
+const returnUsers: TUserListResponse = userListSchemaResponse.parse(users)
     
-        return returnUsers
-      }
+return returnUsers
+}

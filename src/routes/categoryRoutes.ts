@@ -4,6 +4,7 @@ import { ensureUserIsAdminMiddleware } from "../middlewares/ensureUserIsAdminMid
 import { listCategoriesController } from "../controllers/category/listCategoriesController"
 import { ensureTokenIsValidMiddleware } from "../middlewares/validateTokenMiddlewarw"
 import { ensureNameCategoryIsUniqueMiddleware } from "../middlewares/ensureCategoryNameIsUniqueMiddleware"
+import { retrieveRealEstateByategoryController} from "../controllers/category/retrieveRealEstateController"
 
 export  const categoryRoutes: Router = Router()
 
@@ -16,3 +17,6 @@ createCategoryController
 
 categoryRoutes.get("",
 listCategoriesController)
+
+categoryRoutes.get("/:id/realEstate",
+retrieveRealEstateByategoryController)

@@ -4,8 +4,8 @@ import { listCategorieService } from "../../services/category/listCategorieServi
 
 export const listCategoriesController=async(req:Request,res:Response):Promise<Response>=>{
     
-    const categories:TCategoriesListResponse= await listCategorieService()
+const categories:TCategoriesListResponse= await listCategorieService()
 
-    return res.json(categories)
+return res.json(categories)
 
 }

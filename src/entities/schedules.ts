@@ -15,11 +15,11 @@ class Schedule{
       @Column({ type: "time" })
       hour: string;
     
-      @ManyToOne(() => RealEstate,(real_estate)=>real_estate.schedule)
-      real_estate: RealEstate;
+      @ManyToOne(() => RealEstate,(real_estate)=>real_estate.schedules)
+      realEstate: RealEstate;
     
       @ManyToOne(() => User, (users)=>users.schedules)
-      users: User;
+      user: User;
     
     }
     

@@ -11,7 +11,7 @@ id :number
 street:string
 
 @Column({type:"varchar", length:8} )
-ZipCode:string
+zipCode:string
 
 @Column({type:"varchar",length:7 ,nullable:true })
 number?:string|null|undefined

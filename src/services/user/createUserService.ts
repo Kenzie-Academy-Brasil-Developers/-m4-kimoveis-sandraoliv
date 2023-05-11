@@ -5,15 +5,16 @@ import User from "../../entities/users.entity";
 import { userSchemaResponse } from "../../schemas/userschemas";
 
 export  const createUserService= async(data:TUsers)
-   :Promise<TUserResponse>=>{
+:Promise<TUserResponse>=>{
 
-    const userRepository:Repository<User>=AppDataSource.getRepository(User)
+const userRepository:Repository<User>=AppDataSource.getRepository(User)
 
-    const user:User=userRepository.create(data)
+const user:User=userRepository.create(data)
 
-    await userRepository.save(user)
+await userRepository.save(user)
 
-    const newUser: TUserResponse = userSchemaResponse.parse(user)
-    return newUser
+const newUser: TUserResponse = userSchemaResponse.parse(user)
+
+return newUser
 
 }

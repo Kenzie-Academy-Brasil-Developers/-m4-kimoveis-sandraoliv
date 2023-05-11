@@ -5,16 +5,15 @@ import { TCategory, TCategoryResponse } from "../../interfaces/categoryInterface
 import { categorySchemaResponse } from "../../schemas/categorieSchema"
 
 export  const createCategoryService= async(data:TCategory)
-   :Promise<TCategoryResponse>=>{
+:Promise<TCategoryResponse>=>{
 
-    const categoryRepository:Repository<Category>=AppDataSource.getRepository(Category)
+const categoryRepository:Repository<Category>=AppDataSource.getRepository(Category)
 
-    const category:Category=categoryRepository.create(data)
+const category:Category=categoryRepository.create(data)
 
-    await categoryRepository.save(category)
+await categoryRepository.save(category)
 
-    const newCategory: TCategoryResponse = categorySchemaResponse.parse(category)
+const newCategory: TCategoryResponse = categorySchemaResponse.parse(category)
     
-    return  newCategory
-
+return  newCategory
 }

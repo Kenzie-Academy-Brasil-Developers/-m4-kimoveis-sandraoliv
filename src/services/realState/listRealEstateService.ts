@@ -5,14 +5,14 @@ import { TRealEstateList } from "../../interfaces/realEstateInterface"
 import { realEstateResponseListSchema } from "../../schemas/realEstateSchema"
 
 export const listRealEstateService=async(
-    ):
-     Promise<TRealEstateList>=>{
+):
+Promise<TRealEstateList>=>{
  
-       const realEstateRepository:Repository<RealEstate>= AppDataSource.getRepository(RealEstate)
+const realEstateRepository:Repository<RealEstate>= AppDataSource.getRepository(RealEstate)
 
-       const realEstateList: RealEstate[] = await realEstateRepository.find()
+const realEstateList: RealEstate[] = await realEstateRepository.find()
 
-       const returnRealEstateList: TRealEstateList = realEstateResponseListSchema.parse(realEstateList)
+const returnRealEstateList: TRealEstateList = realEstateResponseListSchema.parse(realEstateList)
    
-       return returnRealEstateList
-     }
+return returnRealEstateList
+}

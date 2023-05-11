@@ -5,14 +5,14 @@ import { TCategoriesListResponse } from "../../interfaces/categoryInterface"
 import { categorieListSchemaResponse } from "../../schemas/categorieSchema"
 
 export const listCategorieService=async(
-    ):
-     Promise<TCategoriesListResponse>=>{
+):
+Promise<TCategoriesListResponse>=>{
  
-       const categoryRepository:Repository<Category>= AppDataSource.getRepository(Category)
+const categoryRepository:Repository<Category>= AppDataSource.getRepository(Category)
 
-       const categories: Category[] = await categoryRepository.find()
+const categories: Category[] = await categoryRepository.find()
 
-       const returnCategories: TCategoriesListResponse = categorieListSchemaResponse.parse(categories)
+const returnCategories: TCategoriesListResponse = categorieListSchemaResponse.parse(categories)
    
-       return returnCategories
-     }
+return returnCategories
+}

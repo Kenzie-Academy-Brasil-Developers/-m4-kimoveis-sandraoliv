@@ -5,16 +5,16 @@ import { TRealEstate, TRealEstateRequest } from "../../interfaces/realEstateInte
 import { realEstateRequestSchema} from "../../schemas/realEstateSchema"
 
 export  const createRealeEstateService= async(data:TRealEstate)
-   :Promise<TRealEstateRequest>=>{
+:Promise<TRealEstateRequest>=>{
 
-    const realEstateRepository:Repository<RealEstate>=AppDataSource.getRepository(RealEstate)
+const realEstateRepository:Repository<RealEstate>=AppDataSource.getRepository(RealEstate)
 
-    const realEstate:RealEstate=realEstateRepository.create(data)
+const realEstate:RealEstate=realEstateRepository.create(data)
 
-    await realEstateRepository.save(realEstate)
+await realEstateRepository.save(realEstate)
 
-    const newRealEstate = realEstateRequestSchema.parse(realEstate)
+const newRealEstate = realEstateRequestSchema.parse(realEstate)
 
-    return newRealEstate
+return newRealEstate
 
 }

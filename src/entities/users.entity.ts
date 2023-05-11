@@ -39,7 +39,7 @@ hashPassword() {
     }
   }
 
-@OneToMany(() =>Schedule, (schedules) => schedules.users)
+@OneToMany(() =>Schedule, (schedules) => schedules.user)
 schedules: Schedule[]
 
 
