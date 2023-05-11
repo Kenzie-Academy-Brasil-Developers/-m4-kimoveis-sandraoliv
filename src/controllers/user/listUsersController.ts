@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { listUserService } from "../services/listUserService"
-import { TUserListResponse } from "../interfaces/usersInterfaces"
+import { listUserService } from "../../services/user/listUserService"
+import { TUserListResponse } from "../../interfaces/usersInterfaces"
 
  export  const listUsersController = async (
     req: Request,

@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
-import { TloginRequest } from "../interfaces/loginInterface";
-import { User } from "../entities";
-import { AppDataSource } from "../data-source";
-import { AppError } from "../errors";
+import { TloginRequest } from "../../interfaces/loginInterface";
+import { User } from "../../entities";
+import { AppDataSource } from "../../data-source";
+import { AppError } from "../../errors";
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 import { compare } from "bcryptjs";

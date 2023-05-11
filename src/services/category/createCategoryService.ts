@@ -1,10 +1,8 @@
 import { Repository } from "typeorm"
-import { AppDataSource } from "../data-source"
-import { Category } from "../entities"
-import { TCategory, TCategoryResponse } from "../interfaces/categoryInterface"
-import { categorySchemaResponse } from "../schemas/categorieSchema"
-
-
+import { AppDataSource } from "../../data-source"
+import { Category } from "../../entities"
+import { TCategory, TCategoryResponse } from "../../interfaces/categoryInterface"
+import { categorySchemaResponse } from "../../schemas/categorieSchema"
 
 export  const createCategoryService= async(data:TCategory)
    :Promise<TCategoryResponse>=>{

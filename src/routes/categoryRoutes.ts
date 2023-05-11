@@ -1,7 +1,7 @@
 import { Router } from "express"
-import { createCategoryController } from "../controllers/createCategoryController"
+import { createCategoryController } from "../controllers/category/createCategoryController"
 import { ensureUserIsAdminMiddleware } from "../middlewares/ensureUserIsAdminMiddleware"
-import { listCategoriesController } from "../controllers/listCategoriesController"
+import { listCategoriesController } from "../controllers/category/listCategoriesController"
 import { ensureTokenIsValidMiddleware } from "../middlewares/validateTokenMiddlewarw"
 import { ensureNameCategoryIsUniqueMiddleware } from "../middlewares/ensureCategoryNameIsUniqueMiddleware"
 

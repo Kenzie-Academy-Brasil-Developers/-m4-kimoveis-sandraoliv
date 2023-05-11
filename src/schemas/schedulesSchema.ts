@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const realStateSchema=z.object({
+export const schedulesSchema=z.object({
     id:z.number(),
     date:z.string(),
     hour:z.string(),

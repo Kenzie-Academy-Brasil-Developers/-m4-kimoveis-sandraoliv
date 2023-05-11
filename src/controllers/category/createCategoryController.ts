@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
-import { TCategory, TCategoryResponse } from "../interfaces/categoryInterface"
-import { createCategoryService } from "../services/createCategoryService"
-
+import { TCategory, TCategoryResponse } from "../../interfaces/categoryInterface"
+import { createCategoryService } from "../../services/category/createCategoryService"
 
 export const createCategoryController= async(req:Request,res:Response)
    :Promise<Response>=>{

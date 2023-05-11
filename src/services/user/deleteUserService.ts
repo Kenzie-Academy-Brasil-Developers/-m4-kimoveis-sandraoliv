@@ -1,6 +1,6 @@
 import { Repository } from "typeorm"
-import { User } from "../entities"
-import { AppDataSource } from "../data-source"
+import { User } from "../../entities"
+import { AppDataSource } from "../../data-source"
 
 export const deleteUserService=async(userId:number):Promise<void>=>{
 

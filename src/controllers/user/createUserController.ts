@@ -1,5 +1,5 @@
-import { TUserResponse, TUsers } from "../interfaces/usersInterfaces"
-import { createUserService } from "../services/createUserService"
+import { TUserResponse, TUsers } from "../../interfaces/usersInterfaces"
+import { createUserService } from "../../services/user/createUserService"
 import { Request, Response } from "express"
 
 export const createUserController= async(req:Request,res:Response)
