@@ -8,7 +8,6 @@ import { categoryRoutes } from "./routes/categoryRoutes"
 import { realEstatesRoutes } from "./routes/realEstateRoutes"
 import { schedulesRoutes } from "./routes/schedulesRoutes"
 
-
 const app:Application = express()
 app.use(express.json())
 

@@ -7,7 +7,7 @@ export  const listRealEstateController = async (
     res: Response
 ): Promise<Response> => {
 
-    const realEstateList:TRealEstateList = await listRealEstateService()
-
-    return res.json(realEstateList)
+const realEstateList:TRealEstateList = await listRealEstateService()
+  
+return res.json(realEstateList)
 }

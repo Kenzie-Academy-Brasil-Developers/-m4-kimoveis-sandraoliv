@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 import { deleteUserService } from "../../services/user/deleteUserService";
 
-
 export const deleteUserController = async (req: Request, res: Response): Promise<Response> => {
  
-    const userId:number=parseInt(req.params.id)
+const userId:number=parseInt(req.params.id)
     
-    await deleteUserService( userId);
+await deleteUserService( userId);
 
-    return res.status(204).send()
+return res.status(204).send()
  
 };

@@ -7,16 +7,16 @@ import { userSchemaResponse } from "../../schemas/userschemas";
 
 export const updateUserService = async ( userData:TUserUpdate,userId:number): Promise<TUserResponse> => {
 
-    const userRepository: Repository<User> = AppDataSource.getRepository(User);
+const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
-    const userToUpdate: User | null = await userRepository.findOneBy({id:userId });
+const userToUpdate: User | null = await userRepository.findOneBy({id:userId });
 
-    const updatedUser = userRepository.create({ 
-        ...userToUpdate, 
-        ...userData });
+const updatedUser = userRepository.create({ 
+...userToUpdate, 
+...userData });
 
-    await userRepository.save(updatedUser);
+await userRepository.save(updatedUser);
   
-   const newUser:TUserResponse = userSchemaResponse.parse(updatedUser);
-    return newUser
+const newUser:TUserResponse = userSchemaResponse.parse(updatedUser);
+return newUser
 }

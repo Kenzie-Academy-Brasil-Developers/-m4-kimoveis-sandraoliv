@@ -3,12 +3,12 @@ import { TCategory, TCategoryResponse } from "../../interfaces/categoryInterface
 import { createCategoryService } from "../../services/category/createCategoryService"
 
 export const createCategoryController= async(req:Request,res:Response)
-   :Promise<Response>=>{
+  :Promise<Response>=>{
 
-    const categoryData:TCategory=req.body
+   const categoryData:TCategory=req.body
 
-    const newcategory:TCategoryResponse=await createCategoryService(categoryData)
+   const newcategory:TCategoryResponse=await createCategoryService(categoryData)
   
-    return res.status(201).json( newcategory)
+  return res.status(201).json( newcategory)
     
   }

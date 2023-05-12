@@ -3,12 +3,12 @@ import { TRealEstate, TRealEstateRequest } from "../../interfaces/realEstateInte
 import { createRealeEstateService } from "../../services/realState/createRealEstateService"
 
 export const createRealEstateController= async(req:Request,res:Response)
-   :Promise<Response>=>{
+:Promise<Response>=>{
 
-    const data:TRealEstate=req.body
+const data:TRealEstate=req.body
 
-    const newRealEstate:TRealEstateRequest=await createRealeEstateService(data)
+const newRealEstate:TRealEstateRequest=await createRealeEstateService(data)
   
-    return res.status(201).json(newRealEstate)
+return res.status(201).json(newRealEstate)
     
-  }
+}
