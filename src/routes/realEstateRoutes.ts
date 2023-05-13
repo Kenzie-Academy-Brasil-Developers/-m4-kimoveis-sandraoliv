@@ -3,17 +3,17 @@ import { createRealEstateController } from "../controllers/realEstate/createReal
 import { ensureTokenIsValidMiddleware } from "../middlewares/validateTokenMiddlewarw";
 import { ensureUserIsAdminMiddleware } from "../middlewares/ensureUserIsAdminMiddleware";
 import { serializedUserDataMiddleware } from "../middlewares/serializerMiddleware";
-import { realEstateRequestSchema } from "../schemas/realEstateSchema";
+import { realEstateSchema } from "../schemas/realEstateSchema";
 import { listRealEstateController } from "../controllers/realEstate/listRealEstateController";
-import { ensureAddressIsUniqueMiddleware } from "../middlewares/ensureAddresIsUnique";
+import { ensureNameCategoryIsUniqueMiddleware } from "../middlewares/ensureCategoryNameIsUniqueMiddleware";
 
 export  const realEstatesRoutes: Router = Router()
 
 realEstatesRoutes.post("",
 ensureTokenIsValidMiddleware,
-ensureAddressIsUniqueMiddleware,
 ensureUserIsAdminMiddleware,
-serializedUserDataMiddleware(realEstateRequestSchema),
+serializedUserDataMiddleware(realEstateSchema),
+ensureNameCategoryIsUniqueMiddleware,
 createRealEstateController)
 
 realEstatesRoutes.get("",

@@ -28,7 +28,7 @@ category:true
 })
 
 if (!schedules) {
-    throw new AppError('Schedule not found', 404)
+    throw new AppError('RealEstate not found', 404)
 }
 
 return schedules

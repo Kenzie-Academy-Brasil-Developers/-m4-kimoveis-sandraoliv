@@ -1,8 +1,8 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../data-source"
-import { Address, RealEstate } from "../../entities"
+import { Address, Category, RealEstate } from "../../entities"
 import { TRealEstate, TRealEstateRequest } from "../../interfaces/realEstateInterface"
-import { realEstateRequestSchema} from "../../schemas/realEstateSchema"
+import { AppError } from "../../errors"
 
 export  const createRealeEstateService= async(data:TRealEstate)
 :Promise<TRealEstateRequest>=>{
@@ -10,12 +10,43 @@ export  const createRealeEstateService= async(data:TRealEstate)
 const addressRepository: Repository<Address> = AppDataSource.getRepository(Address);
 const realEstateRepository:Repository<RealEstate>=AppDataSource.getRepository(RealEstate)
 
-const realEstate:RealEstate=realEstateRepository.create(data)
+const verifyAddress: Address | null = await addressRepository.findOneBy({
+  street: data.address.street,
+  zipCode: data.address.zipCode,
+  number: data.address.number!,
+  city: data.address.city,
+  state: data.address.state,
+  });
 
-await realEstateRepository.save(realEstate)
+  if (verifyAddress) {
 
-const newRealEstate = realEstateRequestSchema.parse(realEstate)
+  throw new AppError("Address already exists", 409);
 
-return newRealEstate
+  }
+  const categoryRepository: Repository<Category> =AppDataSource.getRepository(Category);
+
+  const findCategory: Category | null = await categoryRepository.findOne({
+    where: {
+      id: data.categoryId,
+    },
+  });
+
+  if (!findCategory) {
+    throw new AppError("Category not found", 404);
+  }
+
+  const address: Address = addressRepository.create(data.address);
+
+  await addressRepository.save(address);
+
+  const realEstate: RealEstate|any = realEstateRepository.create(data);
+
+  realEstate.address = address;
+
+  realEstate.category = findCategory;
+
+  await realEstateRepository.save(realEstate);
+
+  return realEstate;
 
 }

@@ -20,7 +20,7 @@ export class RealEstate {
   @CreateDateColumn({type:"date"})
   createdAt:string
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({type:"date"})
   updatedAt:string;
 
   @OneToMany(()=>Schedule,(schedules)=>schedules.realEstate)
@@ -31,7 +31,7 @@ export class RealEstate {
   address: Address
 
 
-  @ManyToOne(() => Category ,(categories)=>categories.realEstate)
+  @ManyToOne(() => Category ,(categories)=>categories.realEstate,{nullable:true})
   category: Category;
 }
 

@@ -18,8 +18,7 @@ export const ensureIdExistsMiddleware = async (
       if (!existingUser) {
         throw new AppError('User not found', 404);
       }
-    
-  
+      
     next();
   };
   

@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import { TRealEstateList } from "../../interfaces/realEstateInterface"
 import { listRealEstateService } from "../../services/realState/listRealEstateService"
 
 export  const listRealEstateController = async (
@@ -7,7 +6,7 @@ export  const listRealEstateController = async (
     res: Response
 ): Promise<Response> => {
 
-const realEstateList:TRealEstateList = await listRealEstateService()
+const realEstateList = await listRealEstateService()
   
 return res.json(realEstateList)
 }

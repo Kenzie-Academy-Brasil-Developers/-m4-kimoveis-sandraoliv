@@ -8,7 +8,7 @@ realEstateId:z.number().positive(),
 userId:z.number()
 })
 
-export const scheduleSchemaRequest=schedulesSchema.omit({id:true})
+export const scheduleSchemaRequest=schedulesSchema.omit({id:true,userId:true})
 
 export const scheduleListSchemaResponse =
  z.array(schedulesSchema)
